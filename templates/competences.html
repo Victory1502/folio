@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% block contain %}
+<section class="section" id="blog">
+    <!-- container -->
+    <div class="container text-center">
+        <!-- <p class="section-subtitle">Recent Posts?</p> -->
+        <h6 class="section-title mb-6">competences</h6>
+        <!-- blog-wrapper -->
+        {% for i in comp1 %}
+        <div class="blog-card">
+            <div class="blog-card-header">
+                <img src="{{ url_for('static', filename='imgs/'+i.Image) }}" class="blog-card-img"
+                    alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+            </div>
+            <div class="blog-card-body">
+                <h5 class="blog-card-title">{{ i.Titre }}</h5>
+
+                    <p class="blog-card-caption">
+                        <a href="#">Poster par: {{ use[1] }} </a>
+                        
+                    </p>
+                    <p>{{ i.description }}</p>
+
+                    <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
+            </div>
+        </div><!-- end of blog wrapper -->
+
+        {% endfor %}
+
+        <!-- blog-wrapper -->
+
+    </div><!-- end of container -->
+</section><!-- end of blog section -->
+
+
+
+{% endblock %}
