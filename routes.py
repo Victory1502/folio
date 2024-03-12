@@ -226,9 +226,9 @@ def Add_comp():
 @app.route("/Update_comp", methods=['GET'])
 def Update_comp():
     accueill= connexion2()
-    id=request.args.get('id')
-    comp=competence().one_comp(id)
-#messagerie:
+    ids=request.args.get('id')
+    comp=competence().one_comp(ids)
+
 
 # @app.route('/submit_form', methods=['POST'])
 # def submit_form():
