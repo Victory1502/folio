@@ -1,8 +1,14 @@
 import os
-import secrets, smtplib
+import secrets
+import smtplib
 from datetime import datetime
 
-from flask import Flask, jsonify, render_template, request, session, flash
+import flash
+import Flask
+import jsonify
+import render_template
+import request
+import session
 from flask_sqlalchemy import SQLAlchemy
 
 salt = os.urandom(16)
