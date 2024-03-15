@@ -1,3 +1,3 @@
-pip install - requimnts.txt
+pip install - requirements.txt
 
 python app.py
