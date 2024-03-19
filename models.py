@@ -3,12 +3,7 @@ import secrets
 import smtplib
 from datetime import datetime
 
-import flash
-import Flask
-import jsonify
-import render_template
-import request
-import session
+from flask import Flask, jsonify, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy
 
 salt = os.urandom(16)
