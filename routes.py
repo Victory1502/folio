@@ -158,6 +158,14 @@ def login():
 @app.route("/add_form", methods=["POST"],)
 def add_form():
     accueil= connexion2()
+    fichier= request.file["images"]
+    dossier_images = 'C:/Users/toshiba/PycharmProjects/folio/static/imgs'
+    
+    
+    chemin_fichier= os.path.join(dossier_images, fichier.filename)
+    fichier.save(chemin_fichier)
+    
+    
     ecole= request.form.get("Etablissement")
     nom= request.form.get("formation")
     fichier= request.form.get("images")
@@ -181,6 +189,14 @@ def add_form():
 @app.route("/Add_exp", methods=["POST"],)
 def Add_exp():
     accueil= connexion2()
+    fichier= request.file["images"]
+    dossier_images = 'C:/Users/toshiba/PycharmProjects/folio/static/imgs'
+    
+    
+    chemin_fichier= os.path.join(dossier_images, fichier.filename)
+    fichier.save(chemin_fichier)
+    
+    
     entreprise= request.form.get("Entreprise")
     fichier= request.form.get("images")
     Poste= request.form.get("Poste")
@@ -197,9 +213,17 @@ def Add_exp():
 @app.route("/Add_pro", methods=["POST"],)
 def Add_pro():
     accueil= connexion2()
+    fichier= request.file["images"]
+    dossier_images = 'C:/Users/toshiba/PycharmProjects/folio/static/imgs'
+    
+    
+    chemin_fichier= os.path.join(dossier_images, fichier.filename)
+    fichier.save(chemin_fichier)
+    
+    
+    
     Titre= request.form.get("Titre")
     description= request.form.get("Description")
-    fichier= request.form.get("images")
     lien= request.form.get("Lien")
     debut= request.form.get("debut")
     fin= request.form.get("fin")
@@ -213,11 +237,24 @@ def Add_pro():
 @app.route("/Add_comp", methods=["POST"],)
 def Add_comp():
     accueil= connexion2()
-    fichier= request.form.get("images")
+    
+    dossier_images = 'C:/Users/toshiba/PycharmProjects/folio/static/imgs'
+    
+        
+        
+    fichier = request.files['images']
+    
+    
+    #enregistrer le fichier dans le dossier
+    chemin_fichier= os.path.join(dossier_images, fichier.filename)
+    fichier.save(chemin_fichier)
+    
     comp= request.form.get("Titre")
     description=  request.form.get("Description")
-    nouvelle_competence= competence(Image=fichier, Titre=comp, description=description)
+    nouvelle_competence= competence(Image=fichier.filename, Titre=comp, description=description)
     nouvelle_competence.Add_Comp()
+    
+    
     return accueil
 
 

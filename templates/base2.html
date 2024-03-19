@@ -755,7 +755,7 @@
       </div>
       <div class="modal-body">
          <!-- contact form -->
-            <form action="{{url_for('Add_comp')}}" method="post" class="contact-form col-md-10 col-lg-8 m-auto">
+            <form action="{{url_for('Add_comp')}}" method="post" enctype="multipart/form-data" class="contact-form col-md-10 col-lg-8 m-auto">
                     <div class="form-group col-sm-12">
                         <input type="file" name="images" size="50" class="form-control" placeholder="Image" required>
                     </div>
