@@ -9,6 +9,9 @@ from flask_sqlalchemy import SQLAlchemy
 salt = os.urandom(16)
 
 
+# 
+# mysql://victory15:MBA@vic?76@victory15.mysql.pythonanywhere-services.com/victory15$folio
+
 app=  Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:15022002@localhost:5432/folio"
 app.config['SECRET_KEY'] = secrets.token_hex(16)

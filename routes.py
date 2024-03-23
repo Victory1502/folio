@@ -158,7 +158,7 @@ def login():
 @app.route("/add_form", methods=["POST"],)
 def add_form():
     accueil= connexion2()
-    fichier= request.file["images"]
+    fichier= request.files["images"]
     dossier_images = 'C:/Users/toshiba/PycharmProjects/folio/static/imgs'
     
     
@@ -189,7 +189,7 @@ def add_form():
 @app.route("/Add_exp", methods=["POST"],)
 def Add_exp():
     accueil= connexion2()
-    fichier= request.file["images"]
+    fichier= request.files["images"]
     dossier_images = 'C:/Users/toshiba/PycharmProjects/folio/static/imgs'
     
     
