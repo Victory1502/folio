@@ -4,7 +4,6 @@ import smtplib
 from datetime import datetime
 
 from flask import Flask, jsonify, render_template, request, session
-from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
 salt = os.urandom(16)
