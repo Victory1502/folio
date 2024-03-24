@@ -9,11 +9,11 @@ from flask_sqlalchemy import SQLAlchemy
 salt = os.urandom(16)
 
 
-# 
+#app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:15022002@localhost:5432/folio" 
 # mysql://victory15:MBA@vic?76@victory15.mysql.pythonanywhere-services.com/victory15$folio
-
+#  postgres://ueal4irfjfq02j:pebad9a5e27594557ed63b7997a1074e6352f843d4c28d9e225c9dc850db082f9@cb4l59cdg4fg1k.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d389flrqpe3b5q
 app=  Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:15022002@localhost:5432/folio"
+app.config["SQLALCHEMY_DATABASE_URI"] ="postgres://ueal4irfjfq02j:pebad9a5e27594557ed63b7997a1074e6352f843d4c28d9e225c9dc850db082f9@cb4l59cdg4fg1k.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d389flrqpe3b5q"
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 app.config['SESSION_TYPE'] = 'filesystem'
 db= SQLAlchemy(app)
