@@ -34,6 +34,11 @@ def competences():
 def experiences():
     use = utilisateur().obtenir_one_user(1)
     exp=experience().all_exp()
+    
+    for form in exp:
+        form.date_debut = form.date_debut.strftime('%d %B %Y')
+        form.date_fin = form.date_fin.strftime('%d %B %Y')
+        
     return render_template("experience.html", exp1=exp, use=use)
 
 
@@ -42,11 +47,18 @@ def experiences():
 def formations():
     use= utilisateur().obtenir_one_user(1)
     forms= formation().all_form()
+    for form in forms:
+        form.date_debut = form.date_debut.strftime('%d %B %Y')
+        form.date_fin = form.date_fin.strftime('%d %B %Y')
+            
     return render_template("formation.html", form1=forms, use=use)
 
 @app.route("/Projet")
 def Projet():
     Pro= projet().all_pro()
+    
+    
+    
     return render_template("Projet.html", pro1=Pro)
 
 
