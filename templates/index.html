@@ -1,0 +1,329 @@
+{% extends "base.html" %}
+
+
+{% block contain %}
+    <!-- page header -->
+    <header id="home" class="header">
+        <div class="overlay"></div>
+        <div class="header-content container">
+            <h1 class="header-title">
+                <span class="up">HI!</span>
+                <span class="down">je suis {{ user[0] ~ " " ~ user[1] }}</span>
+            </h1>
+            <p class="header-subtitle">{{ user[4] }}</p>
+
+            <a class="btn btn-primary" href="#about">profil</a>
+        </div>
+    </header><!-- end of page header -->
+
+    <!-- about section -->
+    <section class="section pt-0" id="about">
+        <!-- container -->
+        <div class="container text-center">
+            <!-- about wrapper -->
+            <div class="about">
+                <div class="about-img-holder">
+                    <img src="{{ url_for('static', filename='imgs/'+user[3]) }}" class="about-img"
+                        alt="">
+                </div>
+                <div class="about-caption">
+                    <p class="section-subtitle">Qui suis je ?</p>
+                    <h2 class="section-title mb-3">A propos de moi</h2>
+                    <p>
+                        {{ user[2] }}
+                    </p>
+                    <a href="{{ url_for('static', filename='file/'+user[5]) }}" download=""+{{ user[5] }}><button class="btn-rounded btn btn-outline-primary mt-4">Telechargez mon cv</button></a>
+                </div>
+            </div><!-- end of about wrapper -->
+        </div><!-- end of container -->
+    </section> <!-- end of about section -->
+
+    <!-- service section -->
+    <section class="section" id="service">
+        <div class="container text-center">
+            <p class="section-subtitle">Moi</p>
+            <h6 class="section-title mb-6">Me connaitre <br><span style="font-size: 20px;">cliquer sur une case</span> </h6>
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <a href="/formation">
+                            <img src="{{ url_for('static', filename='imgs/education.png') }}"
+                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                                class="icon">
+                            <h6 class="title">Formation</h6>
+                            <p class="subtitle">Veuillez cliquer dessus pour voir plus d'information sur mes formations</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <a href="/competences">
+                            <img src="{{ url_for('static', filename='imgs/competences.png') }}"
+                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                                class="icon">
+                            <h6 class="title">Competences</h6>
+                            <p class="subtitle">Veuillez cliquer dessus pour voir plus d'information sur mes compétences</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <a href="/Projet">
+                            <img src="{{ url_for('static', filename='imgs/gestion-de-projet.png') }}"
+                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                                class="icon">
+                            <h6 class="title">Projets</h6>
+                            <p class="subtitle">Veuillez cliquer dessus pour voir plus d'information sur mes projets</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <a href="/experience">
+                            <img src="{{ url_for('static', filename='imgs/mallette.png') }}"
+                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                                class="icon">
+                            <h6 class="title">Experience</h6>
+                            <p class="subtitle">Veuillez cliquer dessus pour voir plus d'information sur mes experiences</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end of row -->
+        </div>
+    </section><!-- end of service section -->
+
+    <!-- portfolio section -->
+    <section class="section" id="portfolio">
+        <div class="container text-center">
+            <p class="section-subtitle">Realisation ?</p>
+            <h6 class="section-title mb-6">Portfolio</h6>
+            <!-- row -->
+            <div class="row">
+                {% for i in projet1 %}
+                <div class="col-md-4">
+                    <a href="#" class="portfolio-card">
+                        <img src="{{ url_for('static', filename='imgs/'+i.Image) }}" class="portfolio-card-img" alt="">
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h5>{{ i.Titre}}</h5>
+                                    <p class="font-weight-normal">Cliquer pour voir le github ou la video</p>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+                {% endfor %}
+            </div><!-- end of row -->
+        </div><!-- end of container -->
+    </section> <!-- end of portfolio section -->
+
+    <!-- pricing section -->
+    <!--<section class="section" id="pricing">
+        <div class="container text-center">
+            <p class="section-subtitle">How Much I Charge ?</p>
+            <h6 class="section-title mb-6">My Pricing</h6>
+            
+            <div class="pricing-wrapper">
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <img class="pricing-card-icon" src="{{ url_for('static', filename='imgs/scooter.svg') }}"
+                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                    <div class="pricing-card-body">
+                        <h6 class="pricing-card-title">Free</h6>
+                        <div class="pricing-card-list">
+                            <p>accusamus reprehenderit</p>
+                            <p>provident dolorem </p>
+                            <p>quos neque</p>
+                            <p>fugiat quibusdam</p>
+                            <p><i class="ti-close"></i></p>
+                            <p><i class="ti-close"></i></p>
+                        </div>
+                    </div>
+                    <div class="pricing-card-footer">
+                        <span>$</span>
+                        <span>0.00/Month</span>
+                    </div>
+                    <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <img class="pricing-card-icon" src="{{ url_for('static', filename='imgs/shipped.svg') }}"
+                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                    <div class="pricing-card-body">
+                        <h6 class="pricing-card-title">Basic</h6>
+                        <div class="pricing-card-list">
+                            <p>accusamus reprehenderit</p>
+                            <p>provident dolorem </p>
+                            <p>quos neque</p>
+                            <p>fugiat quibusdam</p>
+                            <p>accusamus laboriosam</p>
+                            <p><i class="ti-close"></i></p>
+                        </div>
+                    </div>
+                    <div class="pricing-card-footer">
+                        <span>$</span>
+                        <span>9.99/Month</span>
+                    </div>
+                    <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <img class="pricing-card-icon" src="{{ url_for('static', filename='imgs/startup.svg') }}"
+                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                    <div class="pricing-card-body">
+                        <h6 class="pricing-card-title">Premium</h6>
+                        <div class="pricing-card-list">
+                            <p>accusamus reprehenderit</p>
+                            <p>provident dolorem </p>
+                            <p>quos neque</p>
+                            <p>fugiat quibusdam</p>
+                            <p>accusamus laboriosam</p>
+                            <p>inventore omnis</p>
+                        </div>
+                    </div>
+                    <div class="pricing-card-footer">
+                        <span>$</span>
+                        <span>99.9/Month</span>
+                    </div>
+                    <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Subscribe</a>
+                </div>
+
+            </div>
+        </div> 
+    </section>
+-->
+    <!-- section -->
+    <section class="section-sm bg-primary">
+        <!-- container -->
+        <div class="container text-center text-sm-left">
+            <!-- row -->
+            <div class="row align-items-center">
+                <div class="col-sm offset-md-1 mb-4 mb-md-0">
+                    <h6 class="title text-light">Voulez vous travaillez avec moi?</h6>
+                    <p class="m-0 text-light">n'hésitez pas à me contacter pour m'embaucher</p>
+                </div>
+                <div class="col-sm offset-sm-2 offset-md-3">
+                    <a href="tel:+330780864916">
+                    <button class="btn btn-lg my-font btn-light rounded">Contactez moi</button>
+                    </a>
+                </div>
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </section> <!-- end of section -->
+
+    <!-- 
+    <section class="section" id="testmonial">
+        <div class="container text-center">
+            <p class="section-subtitle">What Think Client About Me ?</p>
+            <h6 class="section-title mb-6">Testmonial</h6>
+
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-img-holder">
+                            <img src="{{ url_for('static', filename='imgs/avatar2.jpg') }}" class="testimonial-card-img"
+                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        </div>
+                        <div class="testimonial-card-body">
+                            <p class="testimonial-card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                elit. Eaque doloribus autem aperiam earum nostrum omnis blanditiis corporis perspiciatis
+                                adipisci nihil.</p>
+                            <h6 class="testimonial-card-title">Emily Reb</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-img-holder">
+                            <img src="{{ url_for('static', filename='imgs/avatar3.jpg') }}" class="testimonial-card-img"
+                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        </div>
+                        <div class="testimonial-card-body">
+                            <p class="testimonial-card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                elit. Eaque doloribus autem aperiam earum nostrum omnis blanditiis corporis perspiciatis
+                                adipisci nihil.</p>
+                            <h6 class="testimonial-card-title">Emily Reb</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section> 
+-->
+
+    <!-- blog section -->
+    <section class="section" id="blog">
+        <!-- container -->
+        <div class="container text-center">
+            <p class="section-subtitle">Projets ?</p>
+            <h6 class="section-title mb-6">2 dernier projet poster</h6>
+            <!-- blog-wrapper -->
+
+            <!-- blog-wrapper -->
+            {% for i in projet2 %}
+            <div class="blog-card">
+                <div class="blog-card-header">
+                    <img src="{{ url_for('static', filename='imgs/'+i.Image) }}" class="blog-card-img" alt="">
+                </div>
+                <div class="blog-card-body">
+                    <h6 class="blog-card-title">{{ i.Titre }}</h6>
+
+                        <p class="blog-card-caption">
+                            <a href="#">Poster par {{ user[1] }}</a>
+                            <a href="#"><i class="ti-heart text-danger"></i> 456</a>
+                            <a href="#"><i class="ti-comment"></i> 264</a>
+                        </p>
+
+                        <p>{{ i.Descriptiion }}</p>
+
+                        <a href="{{ i.lien }}" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
+                </div>
+            </div><!-- end of blog wrapper -->
+
+            {% endfor %}
+
+        </div><!-- end of container -->
+    </section><!-- end of blog section -->
+
+    <!-- contact section -->
+    <section class="section" id="contact">
+        <div class="container text-center">
+            <p class="section-subtitle">Comment pouvons nous communiquer?</p>
+            <h6 class="section-title mb-5">Contactez Moi</h6>
+            <!-- contact form -->
+            <form action="" method="post" class="contact-form col-md-10 col-lg-8 m-auto">
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <input type="text" size="50" name="nom" class="form-control" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="email" class="form-control" name="email" placeholder="Votre Email" requried>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <textarea name="comment" id="comment" rows="6" class="form-control"
+                            placeholder="Write Something"></textarea>
+                    </div>
+                    <div class="form-group col-sm-12 mt-3">
+                        <input type="submit"  value="Envoyez un message" class="btn btn-outline-primary rounded">
+                    </div>
+                </div>
+            </form><!-- end of contact form -->
+        </div><!-- end of container -->
+    </section><!-- end of contact section -->
+
+
+{% endblock %}
+

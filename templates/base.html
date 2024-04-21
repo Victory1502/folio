@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Devcrud">
+    <title>Meyawo Landing page | Free Bootstrap 4.3.x landing page</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendors/themify-icons/css/themify-icons.css') }}">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/meyawo.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/victory.jpg') }}" />
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="/">Victory</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="/">accueil</a>
+                </li>
+
+                <li class="item">
+                    <a class="link" href="/formation">Formation</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="/competences">competences</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="/experience">Experience</a>
+                </li>
+
+                <li class="item">
+                    <a class="link" href="/Projet">Projets</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="/#contact">Contact</a>
+                </li>
+                <li class="item ml-md-3">
+                    <a href="/connexion" class="btn btn-primary">connexion</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
+
+{% block contain %}
+
+{% endblock %}
+<!-- footer -->
+    <div class="container">
+        <footer class="footer">
+            <p class="mb-0">Copyright
+                <script>document.write(new Date().getFullYear())</script> &copy;
+                   
+            </p>
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a class="link" href="https://www.linkedin.com/in/victory-mbanzila-dimbou/"><i class="ti-linkedin"></i></a>
+                <a href="https://github.com/Victory1502" class="link"><i class="ti-github"></i></a>
+                
+                <a href="javascript:void(0)" class="link"><i class="ti-email"></i></a>
+            </div>
+        </footer>
+    </div> <!-- end of page footer -->
+
+    <!-- core  -->
+    <script src="{{ url_for('static', filename='vendors/jquery/jquery-3.4.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendors/bootstrap/bootstrap.bundle.js') }}"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="{{ url_for('static', filename='vendors/bootstrap/bootstrap.affix.js') }}"></script>
+
+    <!-- Meyawo js -->
+    <script src="{{ url_for('static', filename='js/meyawo.js') }}"></script>
+
+</body>
+
+</html>

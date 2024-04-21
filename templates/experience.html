@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block contain %}
+<section class="section" id="blog">
+    <!-- container -->
+    <div class="container text-center">
+        <!-- <p class="section-subtitle">Recent Posts?</p> -->
+        <h6 class="section-title mb-6">expérience professionnelle</h6>
+        <!-- blog-wrapper -->
+
+        <!-- blog-wrapper -->
+        {% for i in exp1 %}
+        <div class="blog-card">
+            <div class="blog-card-header">
+                <img src="{{ url_for('static', filename='imgs/'+i.Image) }}" class="blog-card-img"
+                    alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+            </div>
+            <div class="blog-card-body">
+                <h6 class="blog-card-title">{{ i.Poste }} chez {{ i.Entreprise }}</h6>
+
+                    <p class="blog-card-caption">
+                        <a href="#">Poster par: {{ use[1] }}</a>
+                    </p>
+
+                    <p> Mon role durant cette experience etait de {{ i.description }}</p>
+
+                    <p><br>
+                        <strong >Durée:</strong> du  {{ i.date_debut }} au {{ i.date_fin }}
+    
+                        </p>
+
+                    <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
+            </div>
+        </div><!-- end of blog wrapper -->
+        {% endfor %}
+
+    </div><!-- end of container -->
+</section><!-- end of blog section -->
+
+
+
+{% endblock %}

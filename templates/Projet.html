@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+
+{% block contain %}
+    <!-- portfolio section -->
+    <section class="section" id="portfolio">
+        <div class="container text-center">
+            <p class="section-subtitle">Realisation ?</p>
+            <h6 class="section-title mb-6">Portfolio</h6>
+            <!-- row -->
+            <div class="row">
+
+                {% for i in pro1 %}
+                <div class="col-md-4">
+                    <a href="{{ i.lien }}" class="portfolio-card">
+                        <img class="portfolio-card-img" src="{{ url_for('static', filename='imgs/'+i.Image) }}" class="img-responsive rounded"
+                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h5>{{ i.Titre }}</h5>
+                                    <p class="font-weight-normal">cliquer pour voir le github ou la video</p>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+
+                {% endfor %}
+            </div><!-- end of row -->
+
+
+<!--            second row-->
+<!--            <br>-->
+<!--            <br>-->
+<!--            <br>-->
+<!--                        &lt;!&ndash; row &ndash;&gt;-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-4">-->
+<!--                    <a href="#" class="portfolio-card">-->
+<!--                        <img src="{{ url_for('static', filename='imgs/folio-1.jpg') }}" class="portfolio-card-img"-->
+<!--                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">-->
+<!--                        <span class="portfolio-card-overlay">-->
+<!--                            <span class="portfolio-card-caption">-->
+<!--                                <h5>Web Designing</h5>-->
+<!--                                    <p class="font-weight-normal">Category: Web Templates</p>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div class="col-md-4">-->
+<!--                    <a href="#" class="portfolio-card">-->
+<!--                        <img class="portfolio-card-img" src="{{ url_for('static', filename='imgs/folio-2.jpg') }}" class="img-responsive rounded"-->
+<!--                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">-->
+<!--                        <span class="portfolio-card-overlay">-->
+<!--                            <span class="portfolio-card-caption">-->
+<!--                                <h5>Web Designing</h5>-->
+<!--                                    <p class="font-weight-normal">Category: Web Templates</p>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div class="col-md-4">-->
+<!--                    <a href="#" class="portfolio-card">-->
+<!--                        <img class="portfolio-card-img" src="{{ url_for('static', filename='imgs/folio-3.jpg') }}" class="img-responsive rounded"-->
+<!--                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">-->
+<!--                        <span class="portfolio-card-overlay">-->
+<!--                            <span class="portfolio-card-caption">-->
+<!--                                <h5>Web Designing</h5>-->
+<!--                                    <p class="font-weight-normal">Category: Web Templates</p>-->
+<!--                            </span>-->
+<!--                        </span>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>&lt;!&ndash; end of row &ndash;&gt;-->
+<!--            </div>&lt;!&ndash; end of row &ndash;&gt;-->
+
+        </div><!-- end of container -->
+    </section> <!-- end of portfolio section -->
+
+
+
+{% endblock %}
