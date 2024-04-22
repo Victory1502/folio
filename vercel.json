@@ -6,7 +6,7 @@
             "src": "wsgi.py",
             "use": "@vercel/python",
             "config": {
-                "runtime": "python-3.11.3"
+                "runtime": "python@3.11.3"
             }
         }
     ],
