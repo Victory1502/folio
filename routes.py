@@ -174,7 +174,9 @@ def login():
 @app.route("/add_form", methods=["POST"],)
 def add_form():
     accueil= connexion2()
-    dossier_images = 'https://folio-9iro.onrender.com/folio/static/imgs'
+    # Pour obtenir le dossier statique approprié
+    static_folder = current_app.static_folder
+    dossier_images = os.path.join(static_folder, 'imgs')
     
     fichier= request.files["images"]
     
