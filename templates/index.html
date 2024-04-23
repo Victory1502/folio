@@ -109,19 +109,42 @@
             <h6 class="section-title mb-6">Portfolio</h6>
             <!-- row -->
             <div class="row">
-                {% for i in projet1 %}
                 <div class="col-md-4">
                     <a href="#" class="portfolio-card">
-                        <img src="{{ url_for('static', filename='imgs/'+i.Image) }}" class="portfolio-card-img" alt="">
+                        <img src="{{ url_for('static', filename='imgs/web.jpg') }}" class="portfolio-card-img" alt="">
                         <span class="portfolio-card-overlay">
                             <span class="portfolio-card-caption">
-                                <h5>{{ i.Titre}}</h5>
-                                    <p class="font-weight-normal">Cliquer pour voir le github ou la video</p>
+                                <h5>DevOps</h5>
+                                    <p class="font-weight-normal">Cela me fais 2 ans d'experience sur le domaine du DevOps</p>
                             </span>
                         </span>
                     </a>
                 </div>
-                {% endfor %}
+
+                <div class="col-md-4">
+                    <a href="#" class="portfolio-card">
+                        <img src="{{ url_for('static', filename='imgs/data.jpg') }}" class="portfolio-card-img" alt="">
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h5>Data</h5>
+                                    <p class="font-weight-normal">La "data", ou les données en français, fait référence aux informations collectées, stockées et analysées à partir de diverses sources.</p>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="#" class="portfolio-card">
+                        <img src="{{ url_for('static', filename='imgs/ML.jpg') }}" class="portfolio-card-img" alt="">
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h5>Intelligence artificielle</h5>
+                                    <p class="font-weight-normal">L'intelligence artificielle (IA) désigne la capacité des machines à accomplir des tâches qui nécessitent généralement l'intelligence humaine, telles que la reconnaissance vocale, la vision par ordinateur, la prise de décision et le traitement du langage naturel.</p>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+                
             </div><!-- end of row -->
         </div><!-- end of container -->
     </section> <!-- end of portfolio section -->
@@ -289,7 +312,6 @@
 
                         <p>{{ i.Descriptiion }}</p>
 
-                        <a href="{{ i.lien }}" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
                 </div>
             </div><!-- end of blog wrapper -->
 
