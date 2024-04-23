@@ -3,17 +3,17 @@ import secrets
 import smtplib
 from datetime import datetime
 
+from babel.dates import format_date
 from flask import (Flask, current_app, jsonify, render_template, request,
                    send_from_directory, session)
 from flask_sqlalchemy import SQLAlchemy
 
 salt = os.urandom(16)
 
-# postgresql://postgres:15022002@localhost:5432/folio
-# postgresql://folio_owner:************@ep-falling-boat-a2tsuyak.eu-central-1.aws.neon.tech/?sslmode=require
+
 app=  Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://folio_owner:UKoWOvERP18I@ep-falling-boat-a2tsuyak.eu-central-1.aws.neon.tech/folio?sslmode=require" 
-# app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:15022002@localhost:5432/folio"
+# app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://folio_owner:UKoWOvERP18I@ep-falling-boat-a2tsuyak.eu-central-1.aws.neon.tech/folio?sslmode=require" 
+app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:15022002@localhost:5432/folio"
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 app.config['SESSION_TYPE'] = 'filesystem'
 db= SQLAlchemy(app)

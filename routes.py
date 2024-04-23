@@ -40,8 +40,8 @@ def experiences():
     exp=experience().all_exp()
     
     for form in exp:
-        form.date_debut = form.date_debut.strftime('%d %B %Y')
-        form.date_fin = form.date_fin.strftime('%d %B %Y')
+        form.date_debut = format_date(form.date_debut, format='long', locale='fr')
+        form.date_fin = format_date(form.date_fin, format='long', locale='fr')
         
     return render_template("experience.html", exp1=exp, use=use)
 
@@ -207,7 +207,8 @@ def add_form():
 @app.route("/Add_exp", methods=["POST"],)
 def Add_exp():
     accueil= connexion2()
-    dossier_images = 'C:/Users/toshiba/PycharmProjects/folio/static/imgs'
+    static_folder = current_app.static_folder
+    dossier_images = os.path.join(static_folder, 'imgs')
     
     fichier= request.files["images"]
     
@@ -231,7 +232,8 @@ def Add_exp():
 @app.route("/Add_pro", methods=["POST"],)
 def Add_pro():
     accueil= connexion2()
-    dossier_images = 'C:/Users/toshiba/PycharmProjects/folio/static/imgs'
+    static_folder = current_app.static_folder
+    dossier_images = os.path.join(static_folder, 'imgs')
     
     fichier= request.files["images"]
     
@@ -257,7 +259,8 @@ def Add_pro():
 def Add_comp():
     accueil= connexion2()
     
-    dossier_images = 'C:/Users/toshiba/PycharmProjects/folio/static/imgs'
+    static_folder = current_app.static_folder
+    dossier_images = os.path.join(static_folder, 'imgs')
     
         
         

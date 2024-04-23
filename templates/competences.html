@@ -6,7 +6,7 @@
     <!-- container -->
     <div class="container text-center">
         <!-- <p class="section-subtitle">Recent Posts?</p> -->
-        <h6 class="section-title mb-6">competences</h6>
+        <h6 class="section-title mb-6">Compétences</h6>
         <!-- blog-wrapper -->
         {% for i in comp1 %}
         <div class="blog-card">
@@ -18,12 +18,11 @@
                 <h5 class="blog-card-title">{{ i.Titre }}</h5>
 
                     <p class="blog-card-caption">
-                        <a href="#">Poster par: {{ use[1] }} </a>
+                        <a href="#">Posté par: {{ use[1] }} </a>
                         
                     </p>
                     <p>{{ i.description }}</p>
 
-                    <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
             </div>
         </div><!-- end of blog wrapper -->
 
