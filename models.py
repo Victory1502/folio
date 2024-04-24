@@ -30,8 +30,8 @@ mail = Mail(app)
 
 
 
-# app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://folio_owner:UKoWOvERP18I@ep-falling-boat-a2tsuyak.eu-central-1.aws.neon.tech/folio?sslmode=require" 
-app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:15022002@localhost:5432/folio"
+app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://folio_owner:UKoWOvERP18I@ep-falling-boat-a2tsuyak.eu-central-1.aws.neon.tech/folio?sslmode=require" 
+# app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:15022002@localhost:5432/folio"
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 app.config['SESSION_TYPE'] = 'filesystem'
 db= SQLAlchemy(app)
