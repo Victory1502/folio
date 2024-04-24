@@ -6,14 +6,32 @@ from datetime import datetime
 from babel.dates import format_date
 from flask import (Flask, current_app, jsonify, render_template, request,
                    send_from_directory, session)
+from flask_mail import Mail
+from flask_mail import Message as MailMessage
 from flask_sqlalchemy import SQLAlchemy
 
 salt = os.urandom(16)
 
 
 app=  Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://folio_owner:UKoWOvERP18I@ep-falling-boat-a2tsuyak.eu-central-1.aws.neon.tech/folio?sslmode=require" 
-# app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:15022002@localhost:5432/folio"
+
+# send mail
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = 'dimbou91@gmail'  # Votre adresse Gmail
+app.config['MAIL_PASSWORD'] = 'Marieclaire0@'  # Votre mot de passe ou mot de passe d'application
+app.config['MAIL_DEFAULT_SENDER'] = 'dimbou91@gmail'
+
+mail = Mail(app)
+
+
+
+
+# app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://folio_owner:UKoWOvERP18I@ep-falling-boat-a2tsuyak.eu-central-1.aws.neon.tech/folio?sslmode=require" 
+app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:15022002@localhost:5432/folio"
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 app.config['SESSION_TYPE'] = 'filesystem'
 db= SQLAlchemy(app)
@@ -250,6 +268,20 @@ class formation(db.Model):
     def all_form(selfSelf):
         form=formation.query.order_by(formation.date_fin.desc()).all()
         return  form
+
+
+
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nom = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    commentaire = db.Column(db.Text, nullable=False)
+    date_reception = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def ajouter(self):
+        message = Message(nom=self.nom, email=self.email, commentaire=self.commentaire)
+        db.session.add(message)
+        db.session.commit()
 
 
 Competence_Formation = db.Table('Comptence_Formation',

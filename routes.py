@@ -52,8 +52,8 @@ def formations():
     use= utilisateur().obtenir_one_user(1)
     forms= formation().all_form()
     for form in forms:
-        form.date_debut = form.date_debut.strftime('%d %B %Y')
-        form.date_fin = form.date_fin.strftime('%d %B %Y')
+        form.date_debut = format_date(form.date_debut, format='long', locale='fr')
+        form.date_fin = format_date(form.date_fin, format='long', locale='fr')
             
     return render_template("formation.html", form1=forms, use=use)
 
@@ -278,6 +278,37 @@ def Add_comp():
     
     
     return accueil
+
+
+# message
+
+@app.route('/contactez', methods=['GET', 'POST'])
+def contactez():
+    accueill = index()
+    
+    if request.method == 'POST':
+        # Récupérer les données du formulaire
+        nom = request.form.get('nom')
+        email = request.form.get('email')
+        commentaire = request.form.get('comment')
+
+        
+
+        # Créer un nouvel objet Message et l'ajouter à la base de données
+        message = Message(nom=nom, email=email, commentaire=commentaire)
+        message.ajouter()
+
+       
+        
+         
+        
+        # return jsonify({'message': 'Votre message a été envoyé et un e-mail de confirmation vous a été envoyé.'}), 200
+
+       
+        
+        
+    # Afficher le formulaire de contact si la requête est GET
+    return accueill
 
 
 # redirection

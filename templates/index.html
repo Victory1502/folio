@@ -326,23 +326,23 @@
             <p class="section-subtitle">Comment pouvons nous communiquer?</p>
             <h6 class="section-title mb-5">Contactez Moi</h6>
             <!-- contact form -->
-            <form action="" method="post" class="contact-form col-md-10 col-lg-8 m-auto">
+            <form action="/contactez" id="contactForm" method="post" class="contact-form col-md-10 col-lg-8 m-auto">
                 <div class="form-row">
                     <div class="form-group col-sm-6">
                         <input type="text" size="50" name="nom" class="form-control" placeholder="Votre nom" required>
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="email" class="form-control" name="email" placeholder="Votre Email" requried>
+                        <input type="email" class="form-control" name="email" placeholder="Votre Email" required>
                     </div>
                     <div class="form-group col-sm-12">
-                        <textarea name="comment" id="comment" rows="6" class="form-control"
-                            placeholder="Write Something"></textarea>
+                        <textarea name="comment" id="comment" rows="6" class="form-control" placeholder="Écrivez quelque chose" required></textarea>
                     </div>
                     <div class="form-group col-sm-12 mt-3">
-                        <input type="submit"  value="Envoyez un message" class="btn btn-outline-primary rounded">
+                        <input type="submit" value="Envoyez un message" class="btn btn-outline-primary rounded">
                     </div>
                 </div>
-            </form><!-- end of contact form -->
+            </form>
+            <!-- end of contact form -->
         </div><!-- end of container -->
     </section><!-- end of contact section -->
 
