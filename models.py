@@ -17,21 +17,14 @@ app=  Flask(__name__)
 
 # send mail
 
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = 'dimbou91@gmail'  # Votre adresse Gmail
-app.config['MAIL_PASSWORD'] = 'Marieclaire0@'  # Votre mot de passe ou mot de passe d'application
-app.config['MAIL_DEFAULT_SENDER'] = 'dimbou91@gmail'
-
-mail = Mail(app)
 
 
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://folio_owner:UKoWOvERP18I@ep-falling-boat-a2tsuyak.eu-central-1.aws.neon.tech/folio?sslmode=require" 
+
+app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://portfolio_owner:1puDBFnsCQ8H@ep-wandering-scene-a26qv2b9.eu-central-1.aws.neon.tech/portfolio?sslmode=require" 
 # app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:15022002@localhost:5432/folio"
+# app.config["SQLALCHEMY_DATABASE_URI"]="postgres://tory:7iZeoSl736FqaUkWO3cRbOZrz2XEvUPj@dpg-cokgf2779t8c73ca4plg-a.frankfurt-postgres.render.com/victory_s8q6"
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 app.config['SESSION_TYPE'] = 'filesystem'
 db= SQLAlchemy(app)
