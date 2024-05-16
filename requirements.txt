@@ -8,6 +8,7 @@ Flask-Mail==0.9.1
 flask-paginate==2024.4.12
 Flask-SQLAlchemy==3.1.1
 greenlet==3.0.2
+gunicorn==22.0.0
 itsdangerous==2.1.2
 Jinja2==3.1.2
 jsonify==0.5
