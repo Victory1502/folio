@@ -28,11 +28,28 @@ def connexion():
     return render_template("connexion.html")
 
 
+ELEMENTS_PAR_PAGE = 5  # Définissez le nombre d'éléments par page ici
+
 @app.route("/competences")
 def competences():
     use = utilisateur().obtenir_one_user(1)
-    comp=competence().all_comp()
-    return render_template("competences.html", comp1=comp, use=use)
+    comp = competence().all_comp()
+
+    # Pagination
+    page = request.args.get('page', 1, type=int)
+    pagination_comp = comp[(page-1)*ELEMENTS_PAR_PAGE: page*ELEMENTS_PAR_PAGE]
+
+    total_pages = math.ceil(len(comp) / ELEMENTS_PAR_PAGE)
+    pagination = Pagination(page=page, per_page=ELEMENTS_PAR_PAGE, total=len(comp), css_framework='bootstrap4')
+
+    return render_template("competences.html", comp1=pagination_comp, use=use, pagination=pagination, total_pages=total_pages)
+
+
+# @app.route("/competences")
+# def competences():
+#     use = utilisateur().obtenir_one_user(1)
+#     comp=competence().all_comp()
+#     return render_template("competences.html", comp1=comp, use=use)
 
 @app.route("/experience")
 def experiences():

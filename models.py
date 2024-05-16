@@ -1,3 +1,4 @@
+import math
 import os
 import secrets
 import smtplib
@@ -8,6 +9,7 @@ from flask import (Flask, current_app, jsonify, render_template, request,
                    send_from_directory, session)
 from flask_mail import Mail
 from flask_mail import Message as MailMessage
+from flask_paginate import Pagination, get_page_args
 from flask_sqlalchemy import SQLAlchemy
 
 salt = os.urandom(16)
